@@ -1,4 +1,4 @@
-O projeto trata da criação de um BOT no TELEGRAM, com a finalidade de realizar uma comunicação com três Hosts através de um Servidor. Basicamente o comando será ativado no TELEGRAM e segue para o Servidor, onde será tratado afim de identificar o destino; para em seguida realizar o envio, seja para um ou mais Hosts.
+O projeto trata da criação de um BOT no TELEGRAM, com a finalidade de realizar uma comunicação com três Hosts através de um Servidor. Basicamente o comando será ativado no TELEGRAM e segue para o Servidor, onde será tratado afim de identificar o destino; para em seguida realizar o envio, seja para um ou mais Hosts. A conexão entre cliente e servidor será através de um Socket TCP.
 
 COMANDOS
 
