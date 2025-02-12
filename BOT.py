@@ -2,7 +2,7 @@ import json
 import sys, requests
 
 # Token do Bot
-token = '7216647399:AAEM_FjApKWcjrQb_7Mwg_gp5Eo1Q5dvWeI'
+token = ''
 
 # URL de acesso ao Bot
 strUrl = f'https://api.telegram.org/bot{token}'
