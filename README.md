@@ -25,3 +25,5 @@ COMANDOS
 #LOGIN:IP = Será encaminhado ao HOST correspondente ao IP solicitando informações detalhadas do usuário que está logado.  O Host responderá (Home, UID,GID e Shell Padrão).
 
 #ONLINE = Lista agentes on line, trazendo as informações: IP, nome do HOST, usuário logado e o tempo que o agente está on-line.
+
+#INIT = Apresenta a msg_inicial com os Comandos Válidos.
