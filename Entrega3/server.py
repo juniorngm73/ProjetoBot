@@ -3,7 +3,6 @@ import threading, socket, requests,function
 ##########################################################################
 HOST_SERVER = 'localhost'
 PORT = 55000
-PROMPT = 'insira sua mensagem >> '
 SERVER = '0.0.0.0'
 CODE_PAGE = 'utf-8'
 ############################################################################
@@ -17,7 +16,7 @@ def main():
 
     try:
         server.bind((SERVER, PORT))
-        server.listen(5)
+        server.listen(10)
         print("Recebendo conexões em: ", (SERVER, PORT))
     except:
         return print('\nNão foi possível iniciar o servidor!\n')
@@ -34,7 +33,7 @@ def main():
 def cliInteraction(client, addr):
     while True:
         try:
-            msg = client.recv(512)
+            msg = client.recv(1024)
             broadcast(msg, client, addr)
         except:
             print(f"\nUsuário {addr} desconectado.\n")
@@ -55,7 +54,7 @@ def deleteClient(client):
     clients.remove(client)
 
 def telegrambot():
-    token = "6731238648:AAF0nfYufZRsi9MgkGor1AcCoaxol8jJ9tk"
+    token = "7216647399:AAEF9mZLGifbRIq3vRE08FUK-L2em_bI8y4"
     strURL = f"https://api.telegram.org/bot{token}/"
     update_id = None
     arquivo_registros = "registros.json"

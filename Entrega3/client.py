@@ -2,7 +2,7 @@ import threading, socket, time
 ########################################################################
 HOST_SERVER = 'localhost'
 PORT = 55000
-PROMPT = 'insira sua mensagem >> '
+MSG = 'insira sua mensagem >> '
 SERVER = '0.0.0.0'
 CODE_PAGE = 'utf-8'
 #######################################################################
@@ -17,7 +17,7 @@ def main():
         return '\nnão foi possível se conectar ao servidor!\n'
 
     print('conexão bem sucedida\n')
-    username = input('insira um nome de usuário pelo qual você vai ser identificado: ');
+    username = input('insira seu usuário : ');
     print()
 
     recebendo = threading.Thread(target=receber_msg, args=[client])
@@ -34,7 +34,7 @@ def receber_msg(client):
         try:
             msg = client.recv(1024).decode(CODE_PAGE)
             print('\n' + msg);
-            print('\n' + PROMPT, end='')
+            print('\n' + MSG, end='')
         except:
             print('\nnão foi possível permanecer conectado no servidor!\n')
             client.close();
@@ -44,7 +44,7 @@ def receber_msg(client):
 def enviar_msg(client, username):
     while True:
         try:
-            msg = input(PROMPT)
+            msg = input(MSG)
             if msg == '!exit':
                 print('\na conexão será encerrada . . .\n')
                 client.send(f'@{username} encerrou a conexão . . .\n'.encode(CODE_PAGE))
