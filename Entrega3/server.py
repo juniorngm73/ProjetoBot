@@ -10,7 +10,7 @@ CODE_PAGE = 'utf-8'
 clients = []
 
 def main():
-    telegram_thread = threading.Thread(target=telegrambot)
+    telegram_thread = threading.Thread(target=Bot_telegram)
     telegram_thread.start()
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -27,20 +27,20 @@ def main():
         clients.append(client)
 
         # Inicia uma thread para interação com o cliente
-        thread = threading.Thread(target=cliInteraction, args=[client, addr])
+        thread = threading.Thread(target=interacao_Cliente, args=[client, addr])
         thread.start()
 
-def cliInteraction(client, addr):
+def interacao_Cliente(client, addr):
     while True:
         try:
             msg = client.recv(1024)
-            broadcast(msg, client, addr)
+            informacoes(msg, client, addr)
         except:
             print(f"\nUsuário {addr} desconectado.\n")
-            deleteClient(client)
+            excluir_Cliente(client)
             break
 
-def broadcast(msg, client, addr):
+def informacoes(msg, client, addr):
     msg = f"{addr}: {msg.decode('utf-8')}"
     print(msg)
     for clientItem in clients:
@@ -48,12 +48,12 @@ def broadcast(msg, client, addr):
             try:
                 clientItem.send(msg.encode('utf-8'))
             except:
-                deleteClient(clientItem)
+                excluir_Cliente(clientItem)
 
-def deleteClient(client):
+def excluir_Cliente(client):
     clients.remove(client)
 
-def telegrambot():
+def Bot_telegram():
     token = "7216647399:AAEF9mZLGifbRIq3vRE08FUK-L2em_bI8y4"
     strURL = f"https://api.telegram.org/bot{token}/"
     update_id = None

@@ -93,6 +93,4 @@ mensagem_inicial = (
             '#NAVEG:IP --> Histórico de navegação nos navegadores Chrome, Firefox,  Microsoft Edge, Opera e Safari, correspondente ao IP.\n'
             '#LOGIN --> lista (Home, UID, GID e Shell Padrão).\n'
             '#LOGIN:IP --> lista (Home, UID, GID e Shell Padrão), correspondente ao IP.\n'
-            '#ONLINE --> Lista agentes on line (IP, nome do HOST, usuário logado e o tempo que o agente está on-line)\n'
-
-                    )
+            '#ONLINE --> Lista agentes on line (IP, nome do HOST, usuário logado e o tempo que o agente está on-line)\n')
